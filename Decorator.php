@@ -1,14 +1,14 @@
 <?php
 abstract class Tile
 {
-    abstract function getWeathFactor();
+    abstract function getWealthFactor();
 }
 
 class Plains extends Tile
 {
     private $wealthfactor = 2;
 
-    function getWeathFactor()
+    function getWealthFactor()
     {
         return $this->wealthfactor;
     }
@@ -26,16 +26,22 @@ abstract class TileDecorator extends Tile
 
 class DiamondDecorator extends TileDecorator
 {
-    function getWeathFactor()
+    function getWealthFactor()
     {
-        return $this->tile->getWeathFactor() + 2;
+        $this->tile->getWealthFactor() + 2;
     }
 }
 
 class PollutionDecorator extends TileDecorator
 {
-    function getWeathFactor()
+    function getWealthFactor()
     {
-        return $this->tile->getWeathFactor() - 4;
+        return $this->tile->getWealthFactor() - 4;
     }
 }
+
+$tile = new Plains();
+print $tile->getWealthFactor();
+
+$tile = new DiamondDecorator(new Plains());
+print $tile->getWealthFactor();
