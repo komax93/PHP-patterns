@@ -70,4 +70,3 @@ class RegexpMarker extends Marker
         return (preg_match($this->test, $response));
     }
 }
-
