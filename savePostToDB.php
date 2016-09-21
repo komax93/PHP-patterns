@@ -7,7 +7,7 @@ class SavePost
 
     public function __construct()
     {
-        $this->dbWrapper('db.cloud435.nic.ua', 'bgtestma_corezoid', 'bgtestma_max', '612117_mA');
+        $this->dbWrapper('91.209.206.77', 'mycorezp_test', 'mycorezp_max', 'T#9za58w;TDQ');
     }
 
     public function executeOperation()
@@ -35,8 +35,8 @@ class SavePost
         header('Access-Control-Allow-Origin: *');
         header('Content-Type: application/json');
 
-        $result = $_GET;
-        $this->sSerializeString = serialize($result);
+        $result = $_POST;
+        $this->sSerializeString = json_encode($result);
     }
 
     private function dbWrapper($host, $dbName, $user, $password)
